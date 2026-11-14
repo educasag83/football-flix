@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { matchById } from '../data/matches'
 import { collectionById } from '../data/collections'
@@ -14,6 +14,15 @@ export function MatchModal() {
   const myList = useMyList()
   const watched = useWatched()
   const m = openId ? matchById(openId) : undefined
+  const [localVideo, setLocalVideo] = useState<string | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (localVideo) URL.revokeObjectURL(localVideo)
+    }
+  }, [localVideo])
+
+  useEffect(() => setLocalVideo(null), [openId])
 
   useEffect(() => {
     if (!m) return
@@ -33,7 +42,7 @@ export function MatchModal() {
   return (
     <div className="modal-backdrop" onClick={close}>
       <article className="modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${m.home} vs ${m.away}`}>
-        <button className="modal-close" onClick={close} aria-label="Cerrar">✕</button>
+        <button className="modal-close" onClick={() => { setLocalVideo(null); close() }} aria-label="Cerrar">✕</button>
         <div className="modal-head" style={{ background: `linear-gradient(120deg, ${h}aa, #141414 45%, #141414 55%, ${a}aa)` }}>
           <div className="modal-teams">
             <div className="modal-team"><Crest team={m.home} size={84} /><span>{m.home}</span></div>
@@ -42,16 +51,34 @@ export function MatchModal() {
           </div>
           {m.nickname && <h2 className="modal-nick">{m.nickname}</h2>}
         </div>
+        {localVideo && (
+          <div className="modal-player">
+            <video src={localVideo} controls autoPlay />
+            <button className="btn ghost" onClick={() => setLocalVideo(null)}>Cerrar vídeo</button>
+          </div>
+        )}
         <div className="modal-body">
           <div className="modal-actions">
-            {m.videoUrl ? (
+            {m.videoUrl && (
               <a className="btn primary" href={m.videoUrl} target="_blank" rel="noreferrer">▶ Ver partido completo</a>
-            ) : (
-              <>
-                <a className="btn primary" href={youtubeSearchUrl(m)} target="_blank" rel="noreferrer">▶ Buscar en YouTube</a>
-                <a className="btn ghost" href={footballiaCompetitionUrl(m)} target="_blank" rel="noreferrer">Buscar en Footballia</a>
-              </>
             )}
+            <a className={`btn ${m.videoUrl ? 'ghost' : 'primary'}`} href={youtubeSearchUrl(m)} target="_blank" rel="noreferrer">▶ Buscar en YouTube</a>
+            {!m.videoUrl && (
+              <a className="btn ghost" href={footballiaCompetitionUrl(m)} target="_blank" rel="noreferrer">Buscar en Footballia</a>
+            )}
+            <label className="btn ghost">
+              📁 Ver archivo de mi PC
+              <input
+                type="file"
+                accept="video/*,.mkv"
+                hidden
+                onChange={(e) => {
+                  const f = e.target.files?.[0]
+                  if (f) setLocalVideo(URL.createObjectURL(f))
+                  e.target.value = ''
+                }}
+              />
+            </label>
             <button className="btn ghost" onClick={() => myList.toggle(m.id)}>{myList.has(m.id) ? '✓ En mi lista' : '+ Mi lista'}</button>
             <button className="btn ghost" onClick={() => watched.toggle(m.id)}>{watched.has(m.id) ? '✓ Visto' : 'Marcar como visto'}</button>
           </div>
