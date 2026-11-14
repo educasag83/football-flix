@@ -38,20 +38,6 @@ export const Results = () => (
   />
 )
 
-export const Wonderkids = () => (
-  <ComingSoon
-    title="Wonderkids"
-    emoji="🌟"
-    description="Seguimiento de las jóvenes promesas de Football Manager en la vida real."
-    plan={[
-      'Lista de wonderkids de Football Manager con edad, club, posición y potencial',
-      'Cómo les va en la realidad: minutos, goles y asistencias de la temporada',
-      'Valor de mercado y evolución (enlace a Transfermarkt)',
-      'Tu propia lista de seguimiento',
-    ]}
-  />
-)
-
 export const Stats = () => (
   <ComingSoon
     title="Estadísticas de jugadores"

@@ -55,3 +55,5 @@ export const useMyList = () => useStoredList('ff:my-list')
 export const useWatched = () => useStoredList('ff:watched')
 /** Equipos favoritos. */
 export const useFavoriteTeams = () => useStoredList('ff:favorite-teams')
+/** Wonderkids que sigues. */
+export const useFollowedKids = () => useStoredList('ff:wk-follow')

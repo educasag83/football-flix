@@ -12,6 +12,7 @@ Mi plataforma personal de fútbol con estilo de streaming (tipo Netflix). El pla
 - **Mis equipos**: eliges tus favoritos y aparece una fila con sus partidos en la portada.
 - **Alineaciones** con dorsales sobre el campo en la ficha de los partidos que las tienen cargadas (`src/data/lineups.ts`).
 - **Equipos revelación y de culto**: el Mallorca de Cúper, el Villarreal de Pellegrini, la Atalanta de Gasperini y más (`src/data/cultTeams.ts`).
+- **Wonderkids**: ficha de cada promesa con reseña, puntos fuertes, perfil estilo FM en radar, proyección, lista de seguimiento y estadísticas por temporada que puedes ir cargando (`src/data/wonderkids.ts`).
 - **Modo sin spoilers**: oculta todos los marcadores para ver un partido sin saber cómo terminó.
 - Secciones preparadas (próximamente): **Resultados y calendario**, **Wonderkids** de Football Manager y **Estadísticas de jugadores**.
 
@@ -49,7 +50,7 @@ npm run dev      # abre http://localhost:5173
 ## Próximos pasos
 
 - Resultados y calendario con una API de fútbol (football-data.org o API-Football tienen planes gratuitos) y enlaces a BeSoccer, SofaScore, Transfermarkt y ceroacero.
-- Lista de wonderkids de Football Manager con su rendimiento real.
+- Cargar automáticamente las estadísticas de los wonderkids desde una API.
 - Fichas y comparador de estadísticas de jugadores.
 - Ampliar el catálogo y rellenar los enlaces directos a los partidos completos.
 

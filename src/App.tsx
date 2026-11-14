@@ -8,7 +8,8 @@ import { Search } from './pages/Search'
 import { MyList } from './pages/MyList'
 import { Teams } from './pages/Teams'
 import { CultTeams } from './pages/CultTeams'
-import { Results, Stats, Wonderkids } from './pages/ComingSoon'
+import { Results, Stats } from './pages/ComingSoon'
+import { Wonderkids } from './pages/Wonderkids'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
