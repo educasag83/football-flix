@@ -34,6 +34,12 @@ export interface Match {
    * Si no está, la ficha ofrece búsquedas en Footballia y YouTube.
    */
   videoUrl?: string
+  /**
+   * Miniatura del partido (URL de una imagen). Si no hay y el vídeo es de
+   * YouTube, se usa la miniatura del vídeo. Si tampoco, se dibuja una
+   * ilustración con los colores de los equipos.
+   */
+  thumbnail?: string
   /** Partido destacado en la portada */
   featured?: boolean
 }

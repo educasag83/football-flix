@@ -109,18 +109,34 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; font-
 .row-wrap:hover .row-arrow { opacity: 1; }
 
 /* ───────── Card ───────── */
-.card { flex: 0 0 auto; width: 280px; scroll-snap-align: start; background: var(--surface); border: 0; padding: 0; border-radius: var(--radius); overflow: hidden; text-align: left; transition: transform .25s, box-shadow .25s; }
-.card:hover, .card:focus-visible { transform: scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.7); z-index: 3; outline: none; }
-.card-art { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center; }
-.card-teams { display: flex; align-items: center; gap: 12px; }
-.card-year { position: absolute; top: 8px; left: 10px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; text-shadow: 0 2px 6px #000; }
-.card-watched { position: absolute; top: 9px; right: 10px; font-size: 11px; font-weight: 700; background: var(--accent); color: var(--accent-ink); padding: 2px 7px; border-radius: 4px; }
-.card-nick { position: absolute; bottom: 8px; left: 10px; right: 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #fff; text-shadow: 0 1px 4px #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-info { padding: 10px 12px 12px; display: grid; gap: 3px; }
-.card-info strong { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-info span { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card { flex: 0 0 auto; width: 320px; scroll-snap-align: start; background: var(--surface); border: 0; padding: 0; border-radius: 8px; overflow: hidden; text-align: left; transition: transform .25s, box-shadow .25s; }
+.card:hover, .card:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.7); z-index: 3; outline: none; }
+.card-art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #0d2416; }
+.art-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.card:hover .art-img, .card:hover .art-pitch { transform: scale(1.06); }
+.art-pitch {
+  position: absolute; inset: 0; transition: transform .5s;
+  background:
+    radial-gradient(circle at 0% 50%, color-mix(in srgb, var(--h) 55%, transparent), transparent 55%),
+    radial-gradient(circle at 100% 50%, color-mix(in srgb, var(--a) 55%, transparent), transparent 55%),
+    repeating-linear-gradient(90deg, #1d6b3a 0 10%, #1a6034 10% 20%);
+}
+.art-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.art-crests { position: absolute; inset: 0 0 32% 0; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.art-vs { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; text-shadow: 0 2px 6px #000; }
+.card-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.55) 38%, transparent 65%); }
+.card-tag { position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; background: #fff; color: #0b0b0f; padding: 3px 8px; border-radius: 3px; }
+.card-watched { position: absolute; top: 10px; right: 10px; font-size: 11px; font-weight: 700; background: var(--accent); color: var(--accent-ink); padding: 3px 8px; border-radius: 3px; }
+.card-play { position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: -38px 0 0 -23px; border-radius: 50%; background: rgba(0,0,0,.55); border: 2px solid #fff; display: grid; place-items: center; font-size: 16px; opacity: 0; transition: opacity .2s; }
+.card:hover .card-play { opacity: 1; }
+.card-overlay { position: absolute; left: 12px; right: 12px; bottom: 10px; display: grid; gap: 2px; }
+.card-nick { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-title { font-size: 15px; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-title small { font-size: 11px; color: #ccc; font-weight: 600; }
+.card-score { font-weight: 800; color: #fff; background: rgba(255,255,255,.16); padding: 0 6px; border-radius: 3px; margin: 0 2px; }
+.card-sub { font-size: 12px; color: #c9c9d1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 .grid .card { width: auto; }
 
 /* ───────── Collection tiles ───────── */
@@ -163,7 +179,10 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; font-
 .modal-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.75); display: flex; justify-content: center; align-items: flex-start; padding: 40px 16px; overflow-y: auto; animation: fade .2s; }
 .modal { position: relative; width: min(860px, 100%); background: #141414; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.8); animation: rise .25s; }
 .modal-close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(0,0,0,.7); font-size: 16px; }
-.modal-head { padding: 50px 24px 30px; text-align: center; }
+.modal-head { position: relative; padding: 50px 24px 30px; text-align: center; overflow: hidden; }
+.modal-head-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.modal-head-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.3)); }
+.modal-teams, .modal-nick { position: relative; z-index: 1; }
 .modal-teams { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 5vw, 50px); }
 .modal-team { display: grid; justify-items: center; gap: 10px; font-weight: 700; font-size: 17px; max-width: 160px; }
 .modal-nick { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 40px; margin: 22px 0 0; letter-spacing: 1px; }
@@ -195,7 +214,7 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; font-
   .row-title { margin: 0 16px 10px; }
   .row-track { padding: 10px 16px 18px; }
   .row-arrow { display: none; }
-  .card { width: 230px; }
+  .card { width: 270px; }
   .page { padding: 150px 16px 50px; }
   .collection-tiles { padding: 0 16px; }
   .modal-backdrop { padding: 0; }

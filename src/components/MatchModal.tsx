@@ -8,6 +8,35 @@ import { useOpenMatch } from '../lib/useOpenMatch'
 import { useMyList, useWatched } from '../lib/storage'
 import { Crest } from './Crest'
 import { Score } from './Score'
+import { useCustomThumbs, useThumb } from '../lib/thumbs'
+import type { Match } from '../data/types'
+
+function HeadImage({ match }: { match: Match }) {
+  const src = useThumb(match)
+  return src ? (
+    <>
+      <img className="modal-head-img" src={src} alt="" />
+      <div className="modal-head-shade" />
+    </>
+  ) : null
+}
+
+function ThumbButton({ match }: { match: Match }) {
+  const { map, set } = useCustomThumbs()
+  const has = Boolean(map[match.id])
+  return (
+    <button
+      className="btn ghost"
+      onClick={() => {
+        const url = window.prompt('Pega la dirección (URL) de una imagen para la miniatura de este partido. Déjalo vacío para quitarla.', map[match.id] ?? '')
+        if (url === null) return
+        set(match.id, url.trim() || null)
+      }}
+    >
+      🖼 {has ? 'Cambiar miniatura' : 'Poner miniatura'}
+    </button>
+  )
+}
 
 export function MatchModal() {
   const { openId, close } = useOpenMatch()
@@ -22,7 +51,9 @@ export function MatchModal() {
     }
   }, [localVideo])
 
-  useEffect(() => setLocalVideo(null), [openId])
+  useEffect(() => {
+    setLocalVideo(null)
+  }, [openId])
 
   useEffect(() => {
     if (!m) return
@@ -44,6 +75,7 @@ export function MatchModal() {
       <article className="modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${m.home} vs ${m.away}`}>
         <button className="modal-close" onClick={() => { setLocalVideo(null); close() }} aria-label="Cerrar">✕</button>
         <div className="modal-head" style={{ background: `linear-gradient(120deg, ${h}aa, #141414 45%, #141414 55%, ${a}aa)` }}>
+          <HeadImage match={m} />
           <div className="modal-teams">
             <div className="modal-team"><Crest team={m.home} size={84} /><span>{m.home}</span></div>
             <Score match={m} big />
@@ -80,6 +112,7 @@ export function MatchModal() {
               />
             </label>
             <button className="btn ghost" onClick={() => myList.toggle(m.id)}>{myList.has(m.id) ? '✓ En mi lista' : '+ Mi lista'}</button>
+            <ThumbButton match={m} />
             <button className="btn ghost" onClick={() => watched.toggle(m.id)}>{watched.has(m.id) ? '✓ Visto' : 'Marcar como visto'}</button>
           </div>
           <p className="modal-synopsis">{m.synopsis}</p>

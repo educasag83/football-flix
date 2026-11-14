@@ -17,6 +17,15 @@ Mi plataforma personal de fútbol con estilo de streaming (tipo Netflix). El pla
 
 La web no aloja vídeos: enlaza a la fuente original. Cada partido tiene un campo `videoUrl`; si está relleno, el botón lleva directo al partido completo (por ejemplo una página de `https://footballia.eu/es/partidos-completos/...`). Si está vacío, la ficha ofrece una búsqueda en YouTube y la sección de Footballia de esa competición.
 
+## Miniaturas
+
+Cada tarjeta muestra una imagen grande del partido, al estilo de los portales de fútbol. El orden es:
+
+1. La imagen que pegues desde la ficha con el botón **🖼 Poner miniatura** (se guarda en tu navegador).
+2. El campo `thumbnail` del partido en `src/data/matches.ts`, si tiene una URL de imagen.
+3. La miniatura del vídeo, si `videoUrl` es un enlace de YouTube.
+4. Si no hay nada, una ilustración de un campo con los colores y escudos de ambos equipos.
+
 ## Cómo añadir un partido
 
 Abre `src/data/matches.ts`, copia un partido, cambia los datos y pon en `collections` las filas donde quieres que aparezca. Las filas (y su orden en la portada) están en `src/data/collections.ts`. Para que un partido salga en la portada grande, añade `featured: true`.
