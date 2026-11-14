@@ -1,0 +1,102 @@
+/**
+ * Base de jugadores para la trivia "Jugó con X, pero no con Y".
+ *
+ * Cada etapa es "Equipo:desde-hasta", con el año en que EMPIEZA la temporada
+ * (2004 = temporada 2004-05). Las selecciones cuentan como equipo, igual que
+ * en el tweet original (Larsson y Cristiano coincidieron en el United, y
+ * Deco con Cristiano en Portugal).
+ *
+ * Dos jugadores son compañeros si estuvieron en el mismo equipo en alguna
+ * temporada en común. Es una aproximación: puede marcar como compañeros a
+ * dos jugadores que coincidieron solo unos meses.
+ */
+export interface TriviaPlayer {
+  name: string
+  stints: string[]
+}
+
+export const triviaPlayers: TriviaPlayer[] = [
+  { name: 'Cristiano Ronaldo', stints: ['Sporting CP:2002-2002', 'Manchester United:2003-2008', 'Real Madrid:2009-2017', 'Juventus:2018-2020', 'Manchester United:2021-2022', 'Al-Nassr:2022-2026', 'Portugal:2003-2026'] },
+  { name: 'Lionel Messi', stints: ['Barcelona:2004-2020', 'PSG:2021-2022', 'Inter Miami:2023-2026', 'Argentina:2005-2026'] },
+  { name: 'Gerard Piqué', stints: ['Manchester United:2004-2005', 'Real Zaragoza:2006-2006', 'Manchester United:2007-2007', 'Barcelona:2008-2022', 'España:2009-2018'] },
+  { name: 'Sergio Agüero', stints: ['Independiente:2003-2005', 'Atlético de Madrid:2006-2010', 'Manchester City:2011-2020', 'Barcelona:2021-2021', 'Argentina:2006-2021'] },
+  { name: 'Zlatan Ibrahimović', stints: ['Malmö:1999-2000', 'Ajax:2001-2003', 'Juventus:2004-2005', 'Inter:2006-2008', 'Barcelona:2009-2009', 'AC Milan:2010-2011', 'PSG:2012-2015', 'Manchester United:2016-2017', 'LA Galaxy:2018-2019', 'AC Milan:2019-2022', 'Suecia:2001-2016', 'Suecia:2020-2022'] },
+  { name: 'Paul Pogba', stints: ['Manchester United:2011-2011', 'Juventus:2012-2015', 'Manchester United:2016-2021', 'Juventus:2022-2023', 'Francia:2013-2022'] },
+  { name: 'Wayne Rooney', stints: ['Everton:2002-2003', 'Manchester United:2004-2016', 'Everton:2017-2017', 'DC United:2018-2019', 'Derby County:2019-2020', 'Inglaterra:2003-2018'] },
+  { name: 'Gareth Bale', stints: ['Southampton:2006-2006', 'Tottenham:2007-2012', 'Real Madrid:2013-2019', 'Tottenham:2020-2020', 'Real Madrid:2021-2021', 'LAFC:2022-2022', 'Gales:2006-2022'] },
+  { name: 'Henrik Larsson', stints: ['Feyenoord:1993-1996', 'Celtic:1997-2003', 'Barcelona:2004-2005', 'Helsingborg:2006-2009', 'Manchester United:2006-2006', 'Suecia:1993-2009'] },
+  { name: 'Deco', stints: ['Porto:1999-2003', 'Barcelona:2004-2007', 'Chelsea:2008-2009', 'Fluminense:2010-2012', 'Portugal:2003-2010'] },
+  { name: 'Xavi Hernández', stints: ['Barcelona:1998-2014', 'Al-Sadd:2015-2018', 'España:2000-2014'] },
+  { name: 'Andrés Iniesta', stints: ['Barcelona:2002-2017', 'Vissel Kobe:2018-2022', 'España:2006-2018'] },
+  { name: 'Ronaldinho', stints: ['Grêmio:1998-2000', 'PSG:2001-2002', 'Barcelona:2003-2007', 'AC Milan:2008-2010', 'Flamengo:2010-2011', 'Atlético Mineiro:2012-2013', 'Brasil:1999-2013'] },
+  { name: "Samuel Eto'o", stints: ['Mallorca:1999-2003', 'Barcelona:2004-2008', 'Inter:2009-2010', 'Anzhi:2011-2012', 'Chelsea:2013-2013', 'Everton:2014-2014', 'Sampdoria:2014-2014', 'Camerún:1997-2014'] },
+  { name: 'Thierry Henry', stints: ['Monaco:1994-1998', 'Juventus:1998-1998', 'Arsenal:1999-2006', 'Barcelona:2007-2009', 'New York Red Bulls:2010-2014', 'Arsenal:2011-2011', 'Francia:1997-2010'] },
+  { name: 'Kaká', stints: ['São Paulo:2001-2002', 'AC Milan:2003-2008', 'Real Madrid:2009-2012', 'AC Milan:2013-2013', 'Orlando City:2015-2017', 'Brasil:2002-2016'] },
+  { name: 'Andrea Pirlo', stints: ['Inter:1998-2000', 'AC Milan:2001-2010', 'Juventus:2011-2014', 'New York City:2015-2017', 'Italia:2002-2015'] },
+  { name: 'Andriy Shevchenko', stints: ['Dinamo Kiev:1994-1998', 'AC Milan:1999-2005', 'Chelsea:2006-2008', 'AC Milan:2008-2008', 'Dinamo Kiev:2009-2011', 'Ucrania:1995-2012'] },
+  { name: 'David Beckham', stints: ['Manchester United:1992-2002', 'Real Madrid:2003-2006', 'LA Galaxy:2007-2012', 'AC Milan:2008-2009', 'PSG:2012-2012', 'Inglaterra:1996-2009'] },
+  { name: 'Luis Figo', stints: ['Sporting CP:1989-1994', 'Barcelona:1995-1999', 'Real Madrid:2000-2004', 'Inter:2005-2008', 'Portugal:1991-2006'] },
+  { name: 'Zinedine Zidane', stints: ['Bordeaux:1992-1995', 'Juventus:1996-2000', 'Real Madrid:2001-2005', 'Francia:1994-2006'] },
+  { name: 'Ronaldo Nazário', stints: ['PSV:1994-1995', 'Barcelona:1996-1996', 'Inter:1997-2001', 'Real Madrid:2002-2006', 'AC Milan:2006-2007', 'Corinthians:2009-2010', 'Brasil:1994-2006'] },
+  { name: 'Raúl González', stints: ['Real Madrid:1994-2009', 'Schalke 04:2010-2011', 'Al-Sadd:2012-2013', 'New York Cosmos:2014-2014', 'España:1996-2006'] },
+  { name: 'Iker Casillas', stints: ['Real Madrid:1999-2014', 'Porto:2015-2019', 'España:2000-2016'] },
+  { name: 'Sergio Ramos', stints: ['Sevilla:2004-2004', 'Real Madrid:2005-2020', 'PSG:2021-2022', 'Sevilla:2023-2023', 'Monterrey:2025-2026', 'España:2005-2021'] },
+  { name: 'Karim Benzema', stints: ['Lyon:2004-2008', 'Real Madrid:2009-2022', 'Al-Ittihad:2023-2025', 'Francia:2007-2015', 'Francia:2021-2022'] },
+  { name: 'Luka Modrić', stints: ['Dinamo Zagreb:2003-2007', 'Tottenham:2008-2011', 'Real Madrid:2012-2024', 'AC Milan:2025-2026', 'Croacia:2006-2026'] },
+  { name: 'Toni Kroos', stints: ['Bayern Múnich:2007-2008', 'Bayer Leverkusen:2008-2009', 'Bayern Múnich:2010-2013', 'Real Madrid:2014-2023', 'Alemania:2010-2024'] },
+  { name: 'Neymar', stints: ['Santos:2009-2012', 'Barcelona:2013-2016', 'PSG:2017-2022', 'Al-Hilal:2023-2024', 'Santos:2024-2026', 'Brasil:2010-2023'] },
+  { name: 'Luis Suárez', stints: ['Nacional:2005-2005', 'Groningen:2006-2006', 'Ajax:2007-2010', 'Liverpool:2010-2013', 'Barcelona:2014-2019', 'Atlético de Madrid:2020-2021', 'Nacional:2022-2022', 'Grêmio:2023-2023', 'Inter Miami:2024-2026', 'Uruguay:2007-2024'] },
+  { name: 'Kylian Mbappé', stints: ['Monaco:2015-2016', 'PSG:2017-2023', 'Real Madrid:2024-2026', 'Francia:2017-2026'] },
+  { name: 'Robert Lewandowski', stints: ['Lech Poznań:2008-2009', 'Borussia Dortmund:2010-2013', 'Bayern Múnich:2014-2021', 'Barcelona:2022-2026', 'Polonia:2008-2026'] },
+  { name: 'Mohamed Salah', stints: ['Basilea:2012-2013', 'Chelsea:2013-2014', 'Fiorentina:2014-2014', 'Roma:2015-2016', 'Liverpool:2017-2026', 'Egipto:2011-2026'] },
+  { name: 'Steven Gerrard', stints: ['Liverpool:1998-2014', 'LA Galaxy:2015-2016', 'Inglaterra:2000-2014'] },
+  { name: 'Frank Lampard', stints: ['West Ham:1995-2000', 'Chelsea:2001-2013', 'Manchester City:2014-2014', 'New York City:2015-2016', 'Inglaterra:1999-2014'] },
+  { name: 'Didier Drogba', stints: ['Guingamp:2002-2002', 'Olympique de Marsella:2003-2003', 'Chelsea:2004-2011', 'Shanghai Shenhua:2012-2012', 'Galatasaray:2012-2013', 'Chelsea:2014-2014', 'Montreal Impact:2015-2016', 'Costa de Marfil:2002-2014'] },
+  { name: 'Fernando Torres', stints: ['Atlético de Madrid:2001-2006', 'Liverpool:2007-2010', 'Chelsea:2010-2014', 'AC Milan:2014-2014', 'Atlético de Madrid:2014-2017', 'Sagan Tosu:2018-2019', 'España:2003-2014'] },
+  { name: 'Xabi Alonso', stints: ['Real Sociedad:1999-2003', 'Liverpool:2004-2008', 'Real Madrid:2009-2013', 'Bayern Múnich:2014-2016', 'España:2003-2014'] },
+  { name: 'Fabio Cannavaro', stints: ['Napoli:1992-1994', 'Parma:1995-2001', 'Inter:2002-2003', 'Juventus:2004-2005', 'Real Madrid:2006-2008', 'Juventus:2009-2009', 'Italia:1997-2010'] },
+  { name: 'Gianluigi Buffon', stints: ['Parma:1995-2000', 'Juventus:2001-2017', 'PSG:2018-2018', 'Juventus:2019-2020', 'Parma:2021-2022', 'Italia:1997-2018'] },
+  { name: 'Paolo Maldini', stints: ['AC Milan:1984-2008', 'Italia:1988-2002'] },
+  { name: 'Alessandro Del Piero', stints: ['Juventus:1993-2011', 'Sydney FC:2012-2013', 'Italia:1995-2008'] },
+  { name: 'Francesco Totti', stints: ['Roma:1992-2016', 'Italia:1998-2006'] },
+  { name: 'Clarence Seedorf', stints: ['Ajax:1992-1994', 'Sampdoria:1995-1995', 'Real Madrid:1996-1998', 'Inter:1998-2001', 'AC Milan:2002-2011', 'Botafogo:2012-2013', 'Países Bajos:1994-2008'] },
+  { name: 'Edgar Davids', stints: ['Ajax:1991-1995', 'AC Milan:1996-1997', 'Juventus:1997-2003', 'Barcelona:2003-2003', 'Inter:2004-2004', 'Tottenham:2005-2006', 'Ajax:2007-2008', 'Países Bajos:1994-2005'] },
+  { name: 'Patrick Kluivert', stints: ['Ajax:1994-1996', 'AC Milan:1997-1997', 'Barcelona:1998-2003', 'Newcastle:2004-2004', 'Valencia:2005-2005', 'PSV:2006-2006', 'Lille:2007-2007', 'Países Bajos:1994-2004'] },
+  { name: 'Ruud van Nistelrooy', stints: ['Heerenveen:1997-1997', 'PSV:1998-2000', 'Manchester United:2001-2005', 'Real Madrid:2006-2009', 'Hamburgo:2009-2010', 'Málaga:2011-2011', 'Países Bajos:1998-2011'] },
+  { name: 'Arjen Robben', stints: ['PSV:2002-2003', 'Chelsea:2004-2006', 'Real Madrid:2007-2008', 'Bayern Múnich:2009-2018', 'Países Bajos:2003-2017'] },
+  { name: 'Wesley Sneijder', stints: ['Ajax:2002-2006', 'Real Madrid:2007-2008', 'Inter:2009-2012', 'Galatasaray:2012-2016', 'Países Bajos:2003-2018'] },
+  { name: 'Diego Forlán', stints: ['Independiente:1998-2001', 'Manchester United:2001-2003', 'Villarreal:2004-2006', 'Atlético de Madrid:2007-2010', 'Inter:2011-2011', 'Internacional:2012-2013', 'Uruguay:2002-2014'] },
+  { name: 'Juan Román Riquelme', stints: ['Boca Juniors:1996-2001', 'Barcelona:2002-2002', 'Villarreal:2003-2006', 'Boca Juniors:2006-2013', 'Argentinos Juniors:2014-2014', 'Argentina:1997-2008'] },
+  { name: 'Carlos Tevez', stints: ['Boca Juniors:2001-2004', 'Corinthians:2005-2005', 'West Ham:2006-2006', 'Manchester United:2007-2008', 'Manchester City:2009-2012', 'Juventus:2013-2014', 'Boca Juniors:2015-2016', 'Shanghai Shenhua:2017-2017', 'Boca Juniors:2018-2020', 'Argentina:2004-2015'] },
+  { name: 'Ángel Di María', stints: ['Rosario Central:2005-2006', 'Benfica:2007-2009', 'Real Madrid:2010-2013', 'Manchester United:2014-2014', 'PSG:2015-2021', 'Juventus:2022-2022', 'Benfica:2023-2024', 'Rosario Central:2025-2026', 'Argentina:2008-2024'] },
+  { name: 'Javier Mascherano', stints: ['River Plate:2003-2005', 'Corinthians:2005-2006', 'West Ham:2006-2006', 'Liverpool:2006-2009', 'Barcelona:2010-2017', 'Hebei China Fortune:2018-2019', 'Estudiantes:2019-2019', 'Argentina:2003-2018'] },
+  { name: 'Gonzalo Higuaín', stints: ['River Plate:2005-2006', 'Real Madrid:2006-2012', 'Napoli:2013-2015', 'Juventus:2016-2017', 'AC Milan:2018-2018', 'Chelsea:2018-2018', 'Juventus:2019-2019', 'Inter Miami:2020-2022', 'Argentina:2009-2018'] },
+  { name: 'Pablo Aimar', stints: ['River Plate:1996-2000', 'Valencia:2000-2005', 'Real Zaragoza:2006-2007', 'Benfica:2008-2012', 'Argentina:1999-2009'] },
+  { name: 'Hernán Crespo', stints: ['River Plate:1993-1995', 'Parma:1996-1999', 'Lazio:2000-2001', 'Inter:2002-2002', 'Chelsea:2003-2003', 'AC Milan:2004-2004', 'Chelsea:2005-2005', 'Inter:2006-2008', 'Genoa:2009-2009', 'Parma:2010-2011', 'Argentina:1995-2007'] },
+  { name: 'Gabriel Batistuta', stints: ['River Plate:1988-1989', 'Boca Juniors:1990-1990', 'Fiorentina:1991-1999', 'Roma:2000-2002', 'Inter:2002-2002', 'Al-Arabi:2003-2004', 'Argentina:1991-2002'] },
+  { name: 'Juan Sebastián Verón', stints: ['Estudiantes:1994-1995', 'Boca Juniors:1995-1995', 'Sampdoria:1996-1997', 'Parma:1998-1998', 'Lazio:1999-2000', 'Manchester United:2001-2002', 'Chelsea:2003-2003', 'Inter:2004-2005', 'Estudiantes:2006-2011', 'Argentina:1996-2010'] },
+  { name: 'Pavel Nedvěd', stints: ['Sparta Praga:1992-1995', 'Lazio:1996-2000', 'Juventus:2001-2008', 'República Checa:1994-2006'] },
+  { name: 'Michael Owen', stints: ['Liverpool:1996-2003', 'Real Madrid:2004-2004', 'Newcastle:2005-2008', 'Manchester United:2009-2011', 'Stoke City:2012-2012', 'Inglaterra:1998-2008'] },
+  { name: 'Rio Ferdinand', stints: ['West Ham:1995-2000', 'Leeds United:2000-2001', 'Manchester United:2002-2013', 'QPR:2014-2014', 'Inglaterra:1997-2011'] },
+  { name: 'Ashley Cole', stints: ['Arsenal:1999-2005', 'Chelsea:2006-2013', 'Roma:2014-2015', 'LA Galaxy:2016-2018', 'Derby County:2018-2018', 'Inglaterra:2001-2014'] },
+  { name: 'Cesc Fàbregas', stints: ['Arsenal:2003-2010', 'Barcelona:2011-2013', 'Chelsea:2014-2018', 'Monaco:2018-2021', 'Como:2022-2022', 'España:2006-2016'] },
+  { name: 'David Villa', stints: ['Sporting de Gijón:2000-2002', 'Real Zaragoza:2003-2004', 'Valencia:2005-2009', 'Barcelona:2010-2012', 'Atlético de Madrid:2013-2013', 'New York City:2014-2018', 'Vissel Kobe:2019-2019', 'España:2005-2017'] },
+  { name: 'David Silva', stints: ['Valencia:2006-2009', 'Manchester City:2010-2019', 'Real Sociedad:2020-2022', 'España:2006-2018'] },
+  { name: 'Yaya Touré', stints: ['Monaco:2006-2006', 'Barcelona:2007-2009', 'Manchester City:2010-2017', 'Costa de Marfil:2004-2015'] },
+  { name: 'Edinson Cavani', stints: ['Danubio:2005-2006', 'Palermo:2007-2009', 'Napoli:2010-2012', 'PSG:2013-2019', 'Manchester United:2020-2021', 'Valencia:2022-2023', 'Boca Juniors:2023-2025', 'Uruguay:2008-2022'] },
+  { name: 'Antoine Griezmann', stints: ['Real Sociedad:2009-2013', 'Atlético de Madrid:2014-2018', 'Barcelona:2019-2020', 'Atlético de Madrid:2021-2026', 'Francia:2014-2024'] },
+  { name: 'Diego Godín', stints: ['Nacional:2005-2006', 'Villarreal:2007-2009', 'Atlético de Madrid:2010-2018', 'Inter:2019-2019', 'Cagliari:2020-2020', 'Atlético Mineiro:2021-2021', 'Vélez Sarsfield:2022-2023', 'Uruguay:2005-2022'] },
+  { name: 'Eden Hazard', stints: ['Lille:2007-2011', 'Chelsea:2012-2018', 'Real Madrid:2019-2022', 'Bélgica:2008-2022'] },
+  { name: 'Kevin De Bruyne', stints: ['Genk:2008-2011', 'Chelsea:2012-2013', 'Werder Bremen:2012-2012', 'Wolfsburgo:2013-2015', 'Manchester City:2015-2024', 'Napoli:2025-2026', 'Bélgica:2010-2026'] },
+  { name: 'Philipp Lahm', stints: ['Bayern Múnich:2002-2002', 'Stuttgart:2003-2004', 'Bayern Múnich:2005-2016', 'Alemania:2004-2014'] },
+  { name: 'Bastian Schweinsteiger', stints: ['Bayern Múnich:2002-2014', 'Manchester United:2015-2016', 'Chicago Fire:2017-2019', 'Alemania:2004-2016'] },
+  { name: 'Miroslav Klose', stints: ['Kaiserslautern:1999-2003', 'Werder Bremen:2004-2006', 'Bayern Múnich:2007-2010', 'Lazio:2011-2015', 'Alemania:2001-2014'] },
+  { name: 'Manuel Neuer', stints: ['Schalke 04:2005-2010', 'Bayern Múnich:2011-2026', 'Alemania:2009-2024'] },
+  { name: 'Thomas Müller', stints: ['Bayern Múnich:2008-2024', 'Vancouver Whitecaps:2025-2026', 'Alemania:2010-2024'] },
+  { name: 'Mesut Özil', stints: ['Schalke 04:2006-2007', 'Werder Bremen:2007-2009', 'Real Madrid:2010-2012', 'Arsenal:2013-2020', 'Fenerbahçe:2020-2021', 'Alemania:2009-2018'] },
+  { name: 'Radamel Falcao', stints: ['River Plate:2005-2008', 'Porto:2009-2010', 'Atlético de Madrid:2011-2012', 'Monaco:2013-2013', 'Manchester United:2014-2014', 'Chelsea:2015-2015', 'Monaco:2016-2018', 'Galatasaray:2019-2020', 'Rayo Vallecano:2021-2022', 'Colombia:2007-2019'] },
+  { name: 'James Rodríguez', stints: ['Banfield:2008-2009', 'Porto:2010-2012', 'Monaco:2013-2013', 'Real Madrid:2014-2016', 'Bayern Múnich:2017-2018', 'Real Madrid:2019-2019', 'Everton:2020-2020', 'Colombia:2011-2026'] },
+  { name: 'Alexis Sánchez', stints: ['Udinese:2008-2010', 'Barcelona:2011-2013', 'Arsenal:2014-2017', 'Manchester United:2017-2019', 'Inter:2019-2021', 'Olympique de Marsella:2022-2022', 'Inter:2023-2023', 'Udinese:2024-2024', 'Chile:2006-2024'] },
+  { name: 'Arturo Vidal', stints: ['Colo-Colo:2006-2006', 'Bayer Leverkusen:2007-2010', 'Juventus:2011-2014', 'Bayern Múnich:2015-2017', 'Barcelona:2018-2019', 'Inter:2020-2021', 'Flamengo:2022-2022', 'Chile:2007-2024'] },
+  { name: 'Claudio Bravo', stints: ['Colo-Colo:2002-2006', 'Real Sociedad:2006-2013', 'Barcelona:2014-2015', 'Manchester City:2016-2019', 'Real Betis:2020-2023', 'Chile:2004-2024'] },
+]

@@ -13,6 +13,7 @@ Mi plataforma personal de fútbol con estilo de streaming (tipo Netflix). El pla
 - **Alineaciones** con dorsales sobre el campo en la ficha de los partidos que las tienen cargadas (`src/data/lineups.ts`).
 - **Equipos revelación y de culto**: el Mallorca de Cúper, el Villarreal de Pellegrini, la Atalanta de Gasperini y más (`src/data/cultTeams.ts`).
 - **Wonderkids**: ficha de cada promesa con reseña, puntos fuertes, perfil estilo FM en radar, proyección, lista de seguimiento y estadísticas por temporada que puedes ir cargando (`src/data/wonderkids.ts`).
+- **Trivia “Jugó con X, pero no con Y”**: trivia del día, trivias aleatorias y la del tweet original de @ManuHeredia21. El generador elige pistas hasta que solo queda un jugador posible (base en `src/data/triviaPlayers.ts`, lógica en `src/lib/trivia.ts`).
 - **Modo sin spoilers**: oculta todos los marcadores para ver un partido sin saber cómo terminó.
 - Secciones preparadas (próximamente): **Resultados y calendario**, **Wonderkids** de Football Manager y **Estadísticas de jugadores**.
 

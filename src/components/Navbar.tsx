@@ -9,6 +9,7 @@ const LINKS = [
   { to: '/equipos', label: 'Mis equipos' },
   { to: '/resultados', label: 'Resultados' },
   { to: '/wonderkids', label: 'Wonderkids' },
+  { to: '/trivia', label: 'Trivia' },
   { to: '/estadisticas', label: 'Estadísticas' },
 ]
 

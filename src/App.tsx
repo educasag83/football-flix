@@ -10,6 +10,7 @@ import { Teams } from './pages/Teams'
 import { CultTeams } from './pages/CultTeams'
 import { Results, Stats } from './pages/ComingSoon'
 import { Wonderkids } from './pages/Wonderkids'
+import { Trivia } from './pages/Trivia'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/culto" element={<CultTeams />} />
         <Route path="/resultados" element={<Results />} />
         <Route path="/wonderkids" element={<Wonderkids />} />
+        <Route path="/trivia" element={<Trivia />} />
         <Route path="/estadisticas" element={<Stats />} />
         <Route path="*" element={<Home />} />
       </Routes>
