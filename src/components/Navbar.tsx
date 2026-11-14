@@ -4,6 +4,7 @@ import { useHideScores } from '../lib/settings'
 
 const LINKS = [
   { to: '/', label: 'Inicio' },
+  { to: '/culto', label: 'Equipos de culto' },
   { to: '/mi-lista', label: 'Mi lista' },
   { to: '/equipos', label: 'Mis equipos' },
   { to: '/resultados', label: 'Resultados' },

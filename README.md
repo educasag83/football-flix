@@ -10,6 +10,8 @@ Mi plataforma personal de fútbol con estilo de streaming (tipo Netflix). El pla
 - **Buscador** por equipo, jugador, año, estadio o apodo del partido ("Maracanazo", "La Décima"…).
 - **Mi lista** y **marcar como visto**, guardados en tu navegador.
 - **Mis equipos**: eliges tus favoritos y aparece una fila con sus partidos en la portada.
+- **Alineaciones** con dorsales sobre el campo en la ficha de los partidos que las tienen cargadas (`src/data/lineups.ts`).
+- **Equipos revelación y de culto**: el Mallorca de Cúper, el Villarreal de Pellegrini, la Atalanta de Gasperini y más (`src/data/cultTeams.ts`).
 - **Modo sin spoilers**: oculta todos los marcadores para ver un partido sin saber cómo terminó.
 - Secciones preparadas (próximamente): **Resultados y calendario**, **Wonderkids** de Football Manager y **Estadísticas de jugadores**.
 

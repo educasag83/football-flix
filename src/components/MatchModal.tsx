@@ -10,6 +10,8 @@ import { Crest } from './Crest'
 import { Score } from './Score'
 import { useCustomThumbs, useThumb } from '../lib/thumbs'
 import type { Match } from '../data/types'
+import { lineups } from '../data/lineups'
+import { LineupPitch } from './LineupPitch'
 
 function HeadImage({ match }: { match: Match }) {
   const src = useThumb(match)
@@ -130,6 +132,7 @@ export function MatchModal() {
               </dd>
             </div>
           </dl>
+          {lineups[m.id] && <LineupPitch lineup={lineups[m.id]} home={m.home} away={m.away} />}
           {!m.videoUrl && (
             <p className="modal-note">
               Todavía no hay un enlace directo a este partido. Cuando lo encuentres en Footballia u otra web, pégalo en el campo

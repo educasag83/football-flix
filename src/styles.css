@@ -198,6 +198,55 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; font-
 
 .footer { padding: 30px 4vw 40px; color: #777; font-size: 13px; border-top: 1px solid #1d1d22; }
 
+
+/* ───────── Alineaciones ───────── */
+.lineups { margin: 8px 0 22px; }
+.lineups h3 { margin: 0 0 8px; font-size: 18px; }
+.lp-heads { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; }
+.lp-heads b { color: var(--text); }
+.lp-heads span:last-child { text-align: right; }
+.lp-pitch {
+  position: relative; aspect-ratio: 105 / 64; border-radius: 8px; overflow: hidden;
+  background: repeating-linear-gradient(90deg, #1f7a42 0 9.09%, #1b6d3b 9.09% 18.18%);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.55);
+}
+.lp-lines i { position: absolute; border: 2px solid rgba(255,255,255,.45); }
+.lp-half { left: 50%; top: 0; bottom: 0; border-width: 0 0 0 2px !important; }
+.lp-circle { left: 50%; top: 50%; width: 17%; aspect-ratio: 1; border-radius: 50%; transform: translate(-50%, -50%); }
+.lp-box { top: 21%; height: 58%; width: 15.7%; }
+.lp-box.l { left: -2px; } .lp-box.r { right: -2px; }
+.lp-player { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 2px; width: 92px; }
+.lp-shirt { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 14px; border: 3px solid; box-shadow: 0 2px 6px rgba(0,0,0,.5); }
+.lp-name { font-size: 11px; font-weight: 700; text-align: center; line-height: 1.1; text-shadow: 0 1px 3px #000, 0 0 2px #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+@media (max-width: 700px) {
+  .lp-pitch { aspect-ratio: 64 / 105; background: repeating-linear-gradient(0deg, #1f7a42 0 9.09%, #1b6d3b 9.09% 18.18%); }
+  .lp-player { left: calc(100% - var(--y)); top: var(--x); width: 70px; }
+  .lp-half { left: 0; right: 0; top: 50%; bottom: auto; border-width: 2px 0 0 0 !important; }
+  .lp-circle { width: 28%; }
+  .lp-box { top: auto; left: 21% !important; right: auto !important; width: 58%; height: 15.7%; }
+  .lp-box.l { top: -2px; } .lp-box.r { bottom: -2px; }
+  .lp-shirt { width: 28px; height: 28px; font-size: 12px; }
+  .lp-name { font-size: 10px; }
+}
+
+
+/* ───────── Equipos de culto ───────── */
+.cult-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 18px; }
+.cult-card { background: var(--surface); border-radius: 12px; overflow: hidden; scroll-margin-top: 90px; }
+.cult-top { display: flex; gap: 16px; align-items: center; padding: 22px 20px; }
+.cult-top h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 32px; margin: 2px 0; line-height: 1; }
+.cult-era { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: rgba(255,255,255,.85); }
+.cult-coach { font-size: 13px; color: #ddd; }
+.cult-body { padding: 4px 20px 22px; }
+.cult-body p { line-height: 1.55; color: #ddd; }
+.cult-body h4 { margin: 16px 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.cult-body ul { margin: 0; padding-left: 18px; line-height: 1.6; }
+.cult-btn { margin-top: 18px; font-size: 14px; padding: 9px 16px; }
+.cult-tile { flex: 0 0 auto; width: 240px; min-height: 150px; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; scroll-snap-align: start; transition: transform .2s; }
+.cult-tile:hover { transform: translateY(-4px); }
+.cult-tile strong { font-size: 16px; }
+.cult-tile small { color: #ccc; }
+
 /* ───────── Mobile ───────── */
 @media (max-width: 900px) {
   .nav { gap: 12px; padding: 12px 16px; flex-wrap: wrap; }
@@ -215,6 +264,7 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; font-
   .row-track { padding: 10px 16px 18px; }
   .row-arrow { display: none; }
   .card { width: 270px; }
+  .cult-grid { grid-template-columns: 1fr; }
   .page { padding: 150px 16px 50px; }
   .collection-tiles { padding: 0 16px; }
   .modal-backdrop { padding: 0; }

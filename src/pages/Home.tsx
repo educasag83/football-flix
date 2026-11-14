@@ -4,6 +4,8 @@ import { matches, matchesInCollection, matchById } from '../data/matches'
 import { useFavoriteTeams, useMyList } from '../lib/storage'
 import { Hero } from '../components/Hero'
 import { Row } from '../components/Row'
+import { cultTeams } from '../data/cultTeams'
+import { CultBadge } from './CultTeams'
 
 export function Home() {
   const featured = matches.filter((m) => m.featured)
@@ -21,6 +23,20 @@ export function Home() {
         {collections.map((c) => (
           <Row key={c.id} title={`${c.emoji} ${c.title}`} matches={matchesInCollection(c.id)} to={`/coleccion/${c.id}`} />
         ))}
+        <section className="row">
+          <h2 className="row-title">
+            <Link to="/culto">💎 Equipos revelación y de culto <span className="row-more">Ver todo ›</span></Link>
+          </h2>
+          <div className="row-track">
+            {cultTeams.map((c) => (
+              <Link key={c.id} to={`/culto#${c.id}`} className="cult-tile" style={{ background: `linear-gradient(135deg, ${c.colors[0]}, #15151c 75%)` }}>
+                <CultBadge team={c} size={48} />
+                <strong>{c.title}</strong>
+                <small>{c.era} · {c.coach}</small>
+              </Link>
+            ))}
+          </div>
+        </section>
         <section className="row">
           <h2 className="row-title">Explorar colecciones</h2>
           <div className="collection-tiles">
