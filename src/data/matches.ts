@@ -771,6 +771,7 @@ export const matches: Match[] = [
     synopsis: 'La final que se jugó a 10.000 km de Buenos Aires. Quintero desde fuera del área y Pity Martínez a puerta vacía.',
     stars: ['Juan Fernando Quintero', 'Gonzalo Martínez', 'Lucas Pratto', 'Darío Benedetto'],
     collections: ['superclasico', 'legendarios'],
+    videoUrl: 'https://footballia.eu/es/partidos-completos/river-plate-boca-juniors-copa-libertadores-2018',
     featured: true,
   },
 ]
