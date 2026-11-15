@@ -1,0 +1,133 @@
+import type { Collection } from './types'
+
+/** El orden de este array es el orden de las filas en la portada. */
+export const collections: Collection[] = [
+  {
+    id: 'legendarios',
+    title: 'Partidos legendarios',
+    subtitle: 'Los partidos que cambiaron la historia del fútbol',
+    colors: ['#b8860b', '#3a2a00'],
+    emoji: '🏆',
+  },
+  {
+    id: 'mundiales',
+    title: 'Copas del Mundo',
+    subtitle: 'De Uruguay 1950 a Qatar 2022',
+    colors: ['#8a1538', '#2b0010'],
+    emoji: '🌍',
+  },
+  {
+    id: 'mundial-2022',
+    title: 'Mundial Qatar 2022',
+    subtitle: 'La tercera estrella de Argentina',
+    colors: ['#8a1538', '#2b0010'],
+    emoji: '🇶🇦',
+  },
+  {
+    id: 'mundial-2018',
+    title: 'Mundial Rusia 2018',
+    subtitle: 'Francia y la generación de Mbappé',
+    colors: ['#c8102e', '#1a0a2e'],
+    emoji: '🇷🇺',
+  },
+  {
+    id: 'mundial-2014',
+    title: 'Mundial Brasil 2014',
+    subtitle: 'El Mineirazo y la cuarta de Alemania',
+    colors: ['#009c3b', '#062a14'],
+    emoji: '🇧🇷',
+  },
+  {
+    id: 'mundial-2010',
+    title: 'Mundial Sudáfrica 2010',
+    subtitle: 'El Mundial de las vuvuzelas y de Iniesta',
+    colors: ['#007a4d', '#1d1600'],
+    emoji: '🇿🇦',
+  },
+  {
+    id: 'mundial-2006',
+    title: 'Mundial Alemania 2006',
+    subtitle: 'Zidane, Materazzi y la cuarta de Italia',
+    colors: ['#1a1a1a', '#8a0000'],
+    emoji: '🇩🇪',
+  },
+  {
+    id: 'mundial-2002',
+    title: 'Mundial Corea y Japón 2002',
+    subtitle: 'El pentacampeonato de Brasil',
+    colors: ['#003478', '#2a0010'],
+    emoji: '🇰🇷',
+  },
+  {
+    id: 'mundial-1998',
+    title: 'Mundial Francia 1998',
+    subtitle: 'Zidane y la primera estrella francesa',
+    colors: ['#002395', '#3a0010'],
+    emoji: '🇫🇷',
+  },
+  {
+    id: 'mundial-1994',
+    title: 'Mundial Estados Unidos 1994',
+    subtitle: 'Romário, Baggio y la primera final por penaltis',
+    colors: ['#3c3b6e', '#2a0010'],
+    emoji: '🇺🇸',
+  },
+  {
+    id: 'mundial-1990',
+    title: 'Mundial Italia 1990',
+    subtitle: 'Las noches mágicas de Italia 90',
+    colors: ['#0066b3', '#0a1a33'],
+    emoji: '🇮🇹',
+  },
+  {
+    id: 'champions',
+    title: 'Noches de Champions',
+    subtitle: 'Finales y remontadas de la Copa de Europa',
+    colors: ['#1b3a8a', '#060f2b'],
+    emoji: '⭐',
+  },
+  {
+    id: 'copa-america',
+    title: 'Copa América',
+    subtitle: 'El torneo de selecciones más antiguo del mundo',
+    colors: ['#0b6e4f', '#012219'],
+    emoji: '🌎',
+  },
+  {
+    id: 'eurocopa',
+    title: 'Eurocopa',
+    subtitle: 'Finales del campeonato de Europa',
+    colors: ['#1f4f9e', '#0a1a33'],
+    emoji: '🇪🇺',
+  },
+  {
+    id: 'el-clasico',
+    title: 'El Clásico: Real Madrid vs Barcelona',
+    subtitle: 'La rivalidad más vista del planeta',
+    colors: ['#a50044', '#004d98'],
+    emoji: '⚔️',
+  },
+  {
+    id: 'superclasico',
+    title: 'Superclásico: Boca vs River',
+    subtitle: 'La pasión del fútbol argentino',
+    colors: ['#103f79', '#e30613'],
+    emoji: '🔥',
+  },
+  {
+    id: 'remontadas',
+    title: 'Remontadas imposibles',
+    subtitle: 'Cuando nadie creía, pasó',
+    colors: ['#5b2a86', '#140626'],
+    emoji: '🔄',
+  },
+  {
+    id: 'finales-penales',
+    title: 'Decididos en los penales',
+    subtitle: 'Once metros de pura tensión',
+    colors: ['#7a3b00', '#1f0f00'],
+    emoji: '🎯',
+  },
+]
+
+export const collectionById = (id: string) => collections.find((c) => c.id === id)
