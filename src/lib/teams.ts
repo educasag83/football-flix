@@ -31,6 +31,19 @@ const TEAM_COLORS: Record<string, [string, string]> = {
   'Paris Saint-Germain': ['#004170', '#da291c'],
   'Boca Juniors': ['#103f79', '#f3b229'],
   'River Plate': ['#ffffff', '#e30613'],
+  Camerún: ['#007a5e', '#ce1126'],
+  Rumanía: ['#fcd116', '#002b7f'],
+  Bulgaria: ['#ffffff', '#00966e'],
+  Croacia: ['#ffffff', '#ff0000'],
+  Senegal: ['#ffffff', '#00853f'],
+  'Corea del Sur': ['#c60c30', '#003478'],
+  'Serbia y Montenegro': ['#0c4076', '#c6363c'],
+  Ghana: ['#ffffff', '#006b3f'],
+  Colombia: ['#fcd116', '#003893'],
+  Japón: ['#0b2a7a', '#ffffff'],
+  'Arabia Saudita': ['#ffffff', '#006c35'],
+  Marruecos: ['#c1272d', '#006233'],
+  Bélgica: ['#e30613', '#000000'],
 }
 
 export const teamColors = (team: string): [string, string] => TEAM_COLORS[team] ?? ['#444444', '#888888']

@@ -100,6 +100,9 @@ export function MatchModal() {
             {!m.videoUrl && (
               <a className="btn ghost" href={footballiaCompetitionUrl(m)} target="_blank" rel="noreferrer">Buscar en Footballia</a>
             )}
+            {m.competition === 'Mundial' && (
+              <a className="btn ghost" href="https://www.plus.fifa.com/" target="_blank" rel="noreferrer">Ver en FIFA+</a>
+            )}
             <label className="btn ghost">
               📁 Ver archivo de mi PC
               <input
